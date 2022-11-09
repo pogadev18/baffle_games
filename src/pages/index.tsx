@@ -1,11 +1,13 @@
 import Head from 'next/head'
-import { signOut, useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
+import Header from "@/root/components/Header";
+import useUserSession from "@/root/hooks/useUserSession";
 
 
 export default function Home() {
-  const {status} = useSession();
+  const {userInfo} = useUserSession()
 
-  console.log('status', status)
+  console.log('user info', userInfo)
 
   return (
     <main>
@@ -15,9 +17,12 @@ export default function Home() {
         <link rel="icon" href="/public/favicon.ico"/>
       </Head>
 
-      <h1 className="font-bold py-10">Hello, you are {status}</h1>
-      <button onClick={() => signOut()}>Sign out</button>
-
+      <Header/>
+      {userInfo && (
+        <div className='text-center py-10'>
+          <button className='bg-red-600 text-white p-3 rounded' onClick={() => signOut()}>Sign out</button>
+        </div>
+      )}
     </main>
   )
 }

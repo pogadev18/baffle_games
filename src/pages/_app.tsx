@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app'
+import { Inter } from '@next/font/google';
 
 import { createClient, configureChains, defaultChains, WagmiConfig } from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
@@ -14,11 +15,23 @@ const client = createClient({
   autoConnect: true,
 });
 
+const inter = Inter({ subsets: ['latin'] })
+
+
 function MyApp({Component, pageProps}: AppProps) {
   return (
     <WagmiConfig client={client}>
       <SessionProvider session={pageProps.session} refetchInterval={0}>
-        <Component {...pageProps} />
+        <>
+          <style jsx global>
+            {`
+              html {
+                font-family: ${inter.style.fontFamily};
+              }
+            `}
+          </style>
+          <Component {...pageProps} />
+        </>
       </SessionProvider>
     </WagmiConfig>
   );
