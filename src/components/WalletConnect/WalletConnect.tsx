@@ -13,7 +13,6 @@ const WalletConnect = () => {
   const {signMessageAsync} = useSignMessage();
   const {push} = useRouter();
 
-
   const handleAuth = async () => {
     if (isConnected) {
       await disconnectAsync();
@@ -47,10 +46,10 @@ const WalletConnect = () => {
 
   return (
     <button
-      className='flex items-center gap-2 uppercase transition-colors hover:text-white'
+      className='rounded-lg bg-main-yellow text-black font-medium py-3 px-6 text-lg transition-colors hover:bg-main-yellow-hover'
       onClick={() => handleAuth()}
     >
-      <FaWallet size='20px'/> Wallet Connect
+      Connect Wallet
     </button>
   );
 };

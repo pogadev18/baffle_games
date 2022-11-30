@@ -10,7 +10,6 @@ const useUserSession = () => {
 
   const {authenticated} = authenticatedStatuses;
 
-
   useEffect(() => {
     if (status === authenticated) {
       const displayUserData = async () => {
@@ -22,7 +21,6 @@ const useUserSession = () => {
         } catch (err) {
           setUserInfo(null)
         }
-
       }
 
       displayUserData();

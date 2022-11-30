@@ -10,6 +10,8 @@ module.exports = {
       colors: {
         'light-black': '#1D1D1D',
         'baffle-blue': '#67B7FF',
+        'main-yellow': '#FFB800',
+        'main-yellow-hover': '#c29d34'
       },
     }
   },

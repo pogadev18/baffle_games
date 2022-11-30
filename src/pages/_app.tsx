@@ -5,6 +5,8 @@ import { createClient, configureChains, defaultChains, WagmiConfig } from 'wagmi
 import { publicProvider } from 'wagmi/providers/public';
 import { SessionProvider } from 'next-auth/react';
 
+import Header from "@/root/components/Header";
+
 import '../styles/globals.css'
 
 const {provider, webSocketProvider} = configureChains(defaultChains, [publicProvider()]);
@@ -16,7 +18,6 @@ const client = createClient({
 });
 
 const inter = Inter({ subsets: ['latin'] })
-
 
 function MyApp({Component, pageProps}: AppProps) {
   return (
@@ -30,6 +31,7 @@ function MyApp({Component, pageProps}: AppProps) {
               }
             `}
           </style>
+          <Header/>
           <Component {...pageProps} />
         </>
       </SessionProvider>
