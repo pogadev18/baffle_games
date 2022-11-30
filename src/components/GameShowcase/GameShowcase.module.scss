@@ -1,0 +1,31 @@
+.gamesShowcase {
+  width: 1100px;
+  margin: auto;
+
+  > div:first-child {
+    background: #ba00d6; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ba00d6 48%, #280d50 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #ba00d6 48%,#280d50 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #ba00d6 48%,#280d50 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ba00d6', endColorstr='#280d50',GradientType=0 ); /* IE6-9 */
+  }
+
+  > div:nth-child(2) {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#006870+48,2f3163+100 */
+    background: #006870; /* Old browsers */
+    background: -moz-linear-gradient(top,  #006870 48%, #2f3163 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #006870 48%,#2f3163 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #006870 48%,#2f3163 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006870', endColorstr='#2f3163',GradientType=0 ); /* IE6-9 */
+  }
+
+  > div:last-child {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#2d2b39+48,211155+100 */
+    background: #2d2b39; /* Old browsers */
+    background: -moz-linear-gradient(top,  #2d2b39 48%, #211155 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #2d2b39 48%,#211155 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #2d2b39 48%,#211155 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d2b39', endColorstr='#211155',GradientType=0 ); /* IE6-9 */
+
+  }
+}
