@@ -13,21 +13,18 @@ const Game = ({gameInfo}: IGameProps) => {
   const [ticketsValue, setTicketsValue] = useState(1);
 
   return (
-    <div className='gameCard pt-10 pb-5 w-72 rounded-3xl shadow-2xl text-center'>
+    <div className='gameCard pt-10 pb-5 rounded-3xl shadow-2xl text-center'>
       <div className='imageWrapper mb-3'>
         <Image className='m-auto' priority src='/matic_logo.png' alt='Matic Logo' width={135} height={135}/>
       </div>
       <div className='info text-white'>
         <p className='font-extrabold uppercase text-xl'>Win<br/> {totalSum} matic</p>
         <p className='uppercase font-semibold text-sm'>Ticket Price {ticketPrice} Matic</p>
-        <p className='font-extrabold text-base my-3'>Big Prize {bigPrize} <span className='uppercase'>matic</span></p>
+        <p className='font-extrabold text-base my-3'>Grand Prize {bigPrize} <span className='uppercase'>matic</span></p>
         <p className='font-medium text-xl font-extrabold'>{winners}</p>
         <p className='font-medium'>guaranteed winners</p>
       </div>
-      <div className='text-left px-4'>
-        <div className={styles.ticketsBar}>
-          <div className={styles.ticketsPercentageBar}/>
-        </div>
+      <div className='text-left mt-7 px-4'>
         <p className='text-subtle-gray text-sm mb-3'>Select Ticket Amount</p>
         <div className='range'>
           <datalist id="tickmarks">

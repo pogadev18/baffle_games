@@ -6,7 +6,7 @@ import styles from './GameShowcase.module.scss'
 
 const GameShowcase = () => {
   return (
-    <section className={`${styles.gamesShowcase} grid grid-cols-3 justify-items-center`}>
+    <section className={`${styles.gamesShowcase} px-10`}>
       {games.map((game) =>
         <Game key={game.id} gameInfo={game}/>
       )}

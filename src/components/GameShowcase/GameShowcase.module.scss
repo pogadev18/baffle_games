@@ -1,6 +1,10 @@
 .gamesShowcase {
-  width: 950px;
+  display: grid;
+  gap: 1.25rem;
+  max-width: 1340px;
   margin: auto;
+
+  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
 
   > div:first-child {
     background: #ba00d6; /* Old browsers */
