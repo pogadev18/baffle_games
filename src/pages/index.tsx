@@ -18,13 +18,14 @@ export default function Home() {
       </Head>
 
       {userInfo && (
-        <div className='text-center py-10'>
+        <div className='text-center py-2'>
           <button className='bg-red-600 text-white p-3 rounded' onClick={() => signOut()}>Sign out</button>
         </div>
       )}
 
-      <GameShowcase/>
-
+      <section className='mt-24'>
+        <GameShowcase/>
+      </section>
     </main>
   )
 }

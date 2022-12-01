@@ -10,18 +10,18 @@ interface IGameProps {
 
 const Game = ({gameInfo}: IGameProps) => {
   const {ticketPrice, totalSum, bigPrize, winners} = gameInfo;
-  const [ticketsValue, setTicketsValue] = useState(0);
+  const [ticketsValue, setTicketsValue] = useState(1);
 
   return (
-    <div className='gameCard py-12 w-72 rounded-3xl shadow-2xl text-center'>
-      <div className='imageWrapper'>
+    <div className='gameCard pt-10 pb-5 w-72 rounded-3xl shadow-2xl text-center'>
+      <div className='imageWrapper mb-3'>
         <Image className='m-auto' priority src='/matic_logo.png' alt='Matic Logo' width={135} height={135}/>
       </div>
       <div className='info text-white'>
-        <p className='uppercase font-semibold text-sm my-7'>Ticket Price {ticketPrice} Matic</p>
-        <p className='font-extrabold uppercase text-xl'>Win {totalSum} matic</p>
-        <p className='font-extrabold text-base'>big prize {bigPrize} <span className='uppercase'>matic</span></p>
-        <p className='font-medium text-xl font-extrabold mt-5'>{winners}</p>
+        <p className='font-extrabold uppercase text-xl'>Win<br/> {totalSum} matic</p>
+        <p className='uppercase font-semibold text-sm'>Ticket Price {ticketPrice} Matic</p>
+        <p className='font-extrabold text-base my-3'>Big Prize {bigPrize} <span className='uppercase'>matic</span></p>
+        <p className='font-medium text-xl font-extrabold'>{winners}</p>
         <p className='font-medium'>guaranteed winners</p>
       </div>
       <div className='text-left px-4'>
@@ -50,11 +50,19 @@ const Game = ({gameInfo}: IGameProps) => {
             onChange={(e) => setTicketsValue(Number(e.target.value))}
             className="w-full h-3 bg-white rounded-lg appearance-none cursor-pointer"/>
         </div>
-        <div className='moreButton'>
-          <button type='button' className='text-white text-main-blue uppercase text-xs'>Buy <span className='text-white'>{ticketsValue}</span> tickets</button>
+        <div className='buyButtons flex justify-between mt-5'>
+          <button type='button' disabled={ticketsValue === 0}
+                  className='disabled:text-subtle-gray transition-colors hover:text-main-yellow text-white text-main-blue uppercase text-xs font-bold'>
+            Buy <span className='text-white'>{ticketsValue}</span> {ticketsValue === 1 ? 'ticket' : 'tickets'}
+          </button>
+          <button type='button' className='hover:text-main-yellow transition-colors text-white text-main-blue uppercase text-xs font-bold'>More tickets</button>
         </div>
       </div>
-
+      <hr className={styles.separator}/>
+      <div className='shareAndOpenButtons text-right px-4'>
+        <button type='button' className='hover:text-main-yellow transition-colors text-white text-main-blue uppercase text-xs font-bold mr-5'>Share</button>
+        <button type='button' className='hover:text-main-yellow transition-colors text-white text-main-blue uppercase text-xs font-bold'>Open</button>
+      </div>
     </div>
   );
 };
