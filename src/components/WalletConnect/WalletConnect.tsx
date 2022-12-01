@@ -46,7 +46,7 @@ const WalletConnect = () => {
 
   return (
     <button
-      className='rounded-lg bg-main-yellow text-black font-medium py-3 px-6 text-lg transition-colors hover:bg-main-yellow-hover'
+      className='rounded-lg bg-main-yellow text-black font-medium py-2 px-6 text-lg transition-colors hover:bg-main-yellow-hover'
       onClick={() => handleAuth()}
     >
       Connect Wallet

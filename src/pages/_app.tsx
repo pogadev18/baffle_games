@@ -1,5 +1,4 @@
 import type { AppProps } from 'next/app'
-import { Inter } from '@next/font/google';
 
 import { createClient, configureChains, defaultChains, WagmiConfig } from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
@@ -17,7 +16,6 @@ const client = createClient({
   autoConnect: true,
 });
 
-const inter = Inter({ subsets: ['latin'] })
 
 function MyApp({Component, pageProps}: AppProps) {
   return (
@@ -26,9 +24,7 @@ function MyApp({Component, pageProps}: AppProps) {
         <>
           <style jsx global>
             {`
-              html {
-                font-family: ${inter.style.fontFamily};
-              }
+              @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;900&display=swap');
             `}
           </style>
           <Header/>
