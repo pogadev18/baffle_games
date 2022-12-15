@@ -31,6 +31,13 @@ export const games = [
     totalSum: 95000,
     bigPrize: 8000,
     winners: 2345
+  },
+  {
+    id: 'sdasjhx7373wdx9',
+    ticketPrice: 1,
+    totalSum: 95000,
+    bigPrize: 8000,
+    winners: 2345
   }
 ]
 

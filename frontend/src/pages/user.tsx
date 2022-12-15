@@ -3,7 +3,7 @@ import { InferGetServerSidePropsType } from "next";
 
 function User({user}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <div>
+    <div className='text-white'>
       <h4>User session:</h4>
       <pre>{JSON.stringify(user, null, 2)}</pre>
       <button onClick={() => signOut({redirect: true})}>Sign out</button>
@@ -18,7 +18,7 @@ export async function getServerSideProps(context: GetSessionParams | undefined) 
   if (!session) {
     return {
       redirect: {
-        destination: '/signin',
+        destination: '/',
         permanent: false,
       },
     };

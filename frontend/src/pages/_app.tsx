@@ -16,11 +16,10 @@ const client = createClient({
   autoConnect: true,
 });
 
-
 function MyApp({Component, pageProps}: AppProps) {
   return (
     <WagmiConfig client={client}>
-      <SessionProvider session={pageProps.session} refetchInterval={0}>
+      <SessionProvider session={pageProps.session}>
         <>
           <style jsx global>
             {`

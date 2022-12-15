@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@moralisweb3/next": "^2.9.0",
     "@next/font": "^13.0.2",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",

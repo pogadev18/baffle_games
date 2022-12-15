@@ -1,17 +1,23 @@
 import React from 'react';
-import { FaWallet } from "react-icons/fa";
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
-import axios from "axios";
-import { signIn } from "next-auth/react";
+import { useAuthRequestChallengeEvm } from '@moralisweb3/next';
 import { useAccount, useConnect, useDisconnect, useSignMessage } from "wagmi";
+import { signIn, SignInResponse, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+
+// import { FaWallet } from "react-icons/fa";
+// import axios from "axios";
 
 const WalletConnect = () => {
   const {connectAsync} = useConnect();
   const {disconnectAsync} = useDisconnect();
   const {isConnected} = useAccount();
   const {signMessageAsync} = useSignMessage();
+  const {requestChallengeAsync} = useAuthRequestChallengeEvm();
   const {push} = useRouter();
+  const {status} = useSession()
+
+
 
   const handleAuth = async () => {
     if (isConnected) {
@@ -20,34 +26,21 @@ const WalletConnect = () => {
 
     try {
       const {account, chain} = await connectAsync({connector: new MetaMaskConnector()});
-
-      const userData = {address: account, chain: chain.id, network: 'evm'};
-
-      const {data} = await axios.post<{ message: string }>('/api/auth/request-message', userData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      const message = data.message;
-
+      const {message} = await requestChallengeAsync({address: account, chainId: chain.id});
       const signature = await signMessageAsync({message});
 
-      // @ts-ignore
-      const {url} = await signIn('credentials', {message, signature, redirect: false, callbackUrl: '/'});
-      await push(url);
-    } catch (err) {
-      // todo: better / friendlier error handling
-      alert('Install MetaMask to connect!')
+      const {url} = await signIn('moralis-auth', {message, signature, callbackUrl: '/'});
+      await push(url!)
+    } catch (e) {
+      console.error(e)
     }
-
   };
-
 
   return (
     <button
+      disabled={status === 'loading'}
       className='rounded-lg bg-main-yellow text-black font-medium py-2 px-6 text-lg transition-colors hover:bg-main-yellow-hover'
-      onClick={() => handleAuth()}
+      onClick={handleAuth}
     >
       Connect Wallet
     </button>
